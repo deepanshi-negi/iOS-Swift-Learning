@@ -8,37 +8,39 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var messages: [String] = []
-
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            ForEach(messages, id: \.self) { message in
-                Text(message)
+        NavigationView {
+            VStack(spacing: 20) {
+                NavigationLink(destination: TemperatureExampleView()) {
+                    HStack {
+                        Text("Temperature Example")
+                            .font(.title2)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                
+                NavigationLink(destination: OperatorsAndDatatypesView()) {
+                    HStack {
+                        Text("Operators & Data Types")
+                            .font(.title2)
+                    }
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.green)
+                    .foregroundColor(.white)
+                    .cornerRadius(10)
+                }
+                
+                Spacer()
             }
-        }
-        .onAppear {
-            messages = getConstantAndVariableTemperatureProgram()
+            .padding()
+            .navigationTitle("Swift Learning")
         }
     }
-}
-
-func getConstantAndVariableTemperatureProgram() -> [String] {
-    let day = "Monday"
-    var messages: [String] = []
-
-    messages.append("Today is \(day), rise and shine.")
-
-    var temperature = 70
-    messages.append("The temperature on \(day) morning is \(temperature)°F.")
-
-    temperature = 80
-    messages.append("The temperature on \(day) evening is \(temperature)°F.")
-
-    let weeklyTemperature = 75
-    temperature = weeklyTemperature
-    messages.append("The average temperature this week is \(temperature)°F.")
-
-    return messages
 }
 
 #Preview {
