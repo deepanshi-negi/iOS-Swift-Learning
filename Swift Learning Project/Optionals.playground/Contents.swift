@@ -2,20 +2,44 @@ import UIKit
 
 var password = "1234"
 let passcode = Int(password)
-print("\(passcode!)")
-password = "Hello World"
+print("The passcode of the app is \(passcode!).")
+password = "hello world"
 if let code = Int(password) {
-    print("The passcode is:\(code)")
+  print("The passcode of the app is \(code).")
+} else {
+  print("Invalid passcode!")
 }
-else {
-    print("Not valid passcode")
-}
-let accessCode :Int
+let accessCode: Int
 if let code = Int(password) {
-    accessCode = code
+  accessCode = code
+} else {
+  accessCode = 1111
 }
-else {
-    accessCode = 1111
+print("The passcode of the app is \(accessCode).")
+let firstPassword = "hello"
+let secondPassword = "world"
+if let firstPasscode = Int(firstPassword),
+  let secondPasscode =
+    Int(secondPassword)
+{
+  print(
+    "The first passcode of the app is \(firstPasscode) and the second passcode of the app is \(secondPasscode)."
+  )
+} else {
+  print("Invalid passcodes!")
 }
-print("\(accessCode)")
-
+let firstAccessCode: Int
+let secondAccessCode: Int
+if let firstPasscode = Int(firstPassword),
+  let secondPasscode =
+    Int(secondPassword)
+{
+  firstAccessCode = firstPasscode
+  secondAccessCode = secondPasscode
+} else {
+  firstAccessCode = 1111
+  secondAccessCode = 2222
+}
+print(
+  "The first passcode of the app is \(firstAccessCode) and the second passcode of the app is \(secondAccessCode)."
+)
